@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def show_weather
     begin
-      current_ip = open('http://whatismyip.akamai.com').read
+      current_ip = request.env['HTTP_CF_CONNECTING_IP']
       location = Geocoder.search(current_ip)
       longlat = location.last.data.dig('loc').split(',')
       longitude = longlat.first
@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
       weather =JSON.parse(forecast.to_json)
       @timezone = weather['timezone']
       @data = weather['currently']
-    rescue
+    rescue => error
+      Rails.logger.debug(error.message)
       redirect_to error_path
     end
   end

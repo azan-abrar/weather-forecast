@@ -3,7 +3,7 @@
     <div class="mb-4">
       <h1 class="m-0 font-white"><%= @timezone %></h1>
       <span class="d-block font-white"><%= DateTime.strptime(@data['time'].to_s,'%s').in_time_zone(@timezone).strftime("%A - %I:%M %p") rescue Time.now.strftime("%A - %I:%M %p") %></span>
-      <span class="d-block font-white"><%= @data['summary'] %> - <%= "Expected #{@data['precipType'].titlecase}" %></span>
+      <span class="d-block font-white"><%= @data['summary'] %> - <%= "Expected #{@data['precipType']&.titlecase}" %></span>
     </div>
     <div class="row">
       <div class="col-sm-6 form-inline">
