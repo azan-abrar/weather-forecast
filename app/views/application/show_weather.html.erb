@@ -11,15 +11,15 @@
         <div class="d-inline align-top">
           <ul class="nav nav-tabs border-0" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active font-dark" href="#profile" role="tab" data-toggle="tab">°F</a>
+              <a class="nav-link active font-dark" href="#buzz" role="tab" data-toggle="tab">°C</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link font-dark" href="#buzz" role="tab" data-toggle="tab">°C</a>
+              <a class="nav-link font-dark" href="#profile" role="tab" data-toggle="tab">°F</a>
             </li>
           </ul>
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="profile"><span class="d-inline align-top display-3"><%= @data['temperature'].to_i %></span></div>
-            <div role="tabpanel" class="tab-pane" id="buzz"><span class="d-inline align-top display-3"><%= farenheit_to_celcius(@data['temperature'].to_i).round %></span></div>
+            <div role="tabpanel" class="tab-pane active" id="buzz"><span class="d-inline align-top display-3"><%= farenheit_to_celcius(@data['temperature'].to_i).round %></span></div>
+            <div role="tabpanel" class="tab-pane" id="profile"><span class="d-inline align-top display-3"><%= @data['temperature'].to_i %></span></div>
           </div>
         </div>
       </div>
