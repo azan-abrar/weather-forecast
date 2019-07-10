@@ -1,0 +1,45 @@
+.nav-tabs {
+  .nav-item {
+    margin: 0 18px;
+  }
+
+  .nav-link {
+    padding: 0;
+    border: none;
+
+    &:hover,
+    &.active {
+      border: none;
+      padding: 0;
+    }
+  }
+}
+
+.icon {
+  margin: -60px 0 0;
+}
+
+.tab-content {
+  margin: -10px 0 0 18px;
+}
+
+.weather-box {
+  background: url('weather-bg.png');
+}
+
+.font-white {
+  color: #efefef;
+}
+
+.font-dark {
+  color: #333333;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.nav-link {
+  background: #cccccc;
+  padding: 5px !important;
+}

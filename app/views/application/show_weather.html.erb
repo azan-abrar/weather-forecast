@@ -1,0 +1,38 @@
+<div class="col-sm-6 mx-auto mt-3 weather-forecast">
+  <div class="weather-box border rounded p-3">
+    <div class="mb-4">
+      <h1 class="m-0 font-white"><%= @timezone %></h1>
+      <span class="d-block font-white"><%= DateTime.strptime(@data['time'].to_s,'%s').in_time_zone(@timezone).strftime("%A - %I:%M %p") rescue Time.now.strftime("%A - %I:%M %p") %></span>
+      <span class="d-block font-white"><%= @data['summary'] %> - <%= "Expected #{@data['precipType'].titlecase}" %></span>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 form-inline">
+        <h2 class="d-inline align-top icon"><i class="fa fa-sun-o text-warning" aria-hidden="true"></i></h2>
+        <div class="d-inline align-top">
+          <ul class="nav nav-tabs border-0" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active font-dark" href="#profile" role="tab" data-toggle="tab">°F</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-dark" href="#buzz" role="tab" data-toggle="tab">°C</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="profile"><span class="d-inline align-top display-3"><%= @data['temperature'].to_i %></span></div>
+            <div role="tabpanel" class="tab-pane" id="buzz"><span class="d-inline align-top display-3"><%= farenheit_to_celcius(@data['temperature'].to_i).round %></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 align-right">
+        <span class="d-block font-white">Precipitation: <%= @data['precipProbability'] %></span>
+        <span class="d-block font-white">Humidity: <%= (@data['humidity'] * 100).round %>%</span>
+        <span class="d-block font-white">Wind: <%= @data['windSpeed'] %> mph</span>
+        <div class="btn-group mt-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn bg-light btn-sm mr-1">Temperature</button>
+          <button type="button" class="btn bg-light btn-sm mr-1">Precipitation</button>
+          <button type="button" class="btn bg-light btn-sm">Wind</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
